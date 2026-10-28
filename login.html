@@ -1,0 +1,40 @@
+<!doctype html>
+<!-- Experiment 2: Login page -->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login - GL Bajaj Book Store</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main>
+      <section class="page">
+        <h1>Login</h1>
+        <p class="lead">Sign in to your book store account.</p>
+        <div class="form-card">
+          <form id="loginForm">
+            <label for="loginEmail">Email address
+              <input type="email" id="loginEmail" name="email" placeholder="you@example.com" autocomplete="email" required />
+              <span class="err" id="loginEmailErr"></span>
+            </label>
+            <label for="loginPassword">Password
+              <input type="password" id="loginPassword" name="password" placeholder="Enter your password" autocomplete="current-password" required />
+              <span class="err" id="loginPasswordErr"></span>
+            </label>
+            <div class="inline"><label for="remember"><input type="checkbox" id="remember" /> Remember me</label></div>
+            <div class="inline">
+              <button class="primary-btn" type="submit">Login <span>→</span></button>
+              <button class="btn-sm" type="reset">Clear</button>
+            </div>
+            <p id="loginMsg" class="ok-msg" role="status"></p>
+          </form>
+          <p class="hint">New here? <a href="register.html"><u>Create an account</u></a>.
+            Frontend demo only: passwords are never saved.</p>
+        </div>
+      </section>
+    </main>
+    <script src="common.js"></script>
+    <script src="login.js"></script>
+  </body>
+</html>

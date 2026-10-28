@@ -1,0 +1,25 @@
+/* Experiments 8 & 9: demo stylesheet. Each selector is styled here and used in the HTML */
+.dots{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='36'%3E%3Ccircle cx='18' cy='18' r='5' fill='%23ffcc3f'/%3E%3C/svg%3E")}
+/* Exp 8: page background image + different fonts */
+body.exp8{background-color:#fffdf7;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40'%3E%3Cpath d='M0 40L40 0' stroke='%23ece3c8' stroke-width='2'/%3E%3C/svg%3E")}
+.f-serif{font-family:Georgia,"Times New Roman",serif;font-size:22px;color:#512912}
+.f-sans{font-family:Arial,Helvetica,sans-serif;font-size:18px;color:#2f503b;letter-spacing:1px}
+.f-mono{font-family:"Courier New",monospace;font-size:17px;color:#244653;background:#fff;padding:2px 6px}
+.f-cursive{font-family:"Brush Script MT","Comic Sans MS",cursive;font-size:30px;color:#a0522d}
+.f-bold-italic{font-weight:bold;font-style:italic;text-decoration:underline;color:#b3261e}
+.f-spaced{font-variant:small-caps;letter-spacing:3px;font-size:20px;text-shadow:1px 1px 2px #ccc}
+.banner{padding:50px 24px;color:#fff;text-align:center;font-family:Georgia,serif;font-size:30px;
+  background-color:#2f503b;background-image:linear-gradient(135deg,#2f503b 0%,#512912 100%)}
+.card8{padding:24px;margin:20px 0;border:2px dashed #92702b;background-color:#fff9e8}
+/* Exp 9: background-repeat */
+.rep{height:130px;margin:10px 0 22px;border:1px solid #92702b;background-color:#fff}
+.rep-all{background-repeat:repeat}
+.rep-x{background-repeat:repeat-x}
+.rep-y{background-repeat:repeat-y}
+.rep-no{background-repeat:no-repeat;background-position:center}
+/* Exp 9: link pseudo-classes (keep this order: link, visited, hover, active) */
+a.demo:link{color:#1a55c4;text-decoration:none}
+a.demo:visited{color:#7b2d8b}
+a.demo:hover{color:#fff;background:#512912;text-decoration:underline}
+a.demo:active{color:#b3261e;background:#ffcc3f}
+.lab-nav{display:flex;gap:18px;flex-wrap:wrap;margin-bottom:20px}

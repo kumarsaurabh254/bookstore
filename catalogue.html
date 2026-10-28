@@ -1,0 +1,40 @@
+<!doctype html>
+<!-- Experiment 3: Book catalogue using an HTML table -->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Catalogue - GL Bajaj Book Store</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main>
+      <section class="page" id="catalogue">
+        <h1>Book Catalogue</h1>
+        <p class="lead">Cover, author, publisher and price for every book. Add what you need to your cart.</p>
+        <div class="toolbar">
+          <input id="searchInput" class="search" type="search" placeholder="Search books..." aria-label="Search books" />
+          <div class="filters" id="categoryFilters">
+            <button class="filter active" data-category="All">All</button>
+            <button class="filter" data-category="Engineering">Engineering</button>
+            <button class="filter" data-category="Coding">Coding</button>
+            <button class="filter" data-category="Aptitude">Aptitude</button>
+            <button class="filter" data-category="Fiction">Fiction</button>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table class="data">
+            <caption class="hint" style="text-align:left;padding-bottom:8px">Prices in Indian rupees.</caption>
+            <thead>
+              <tr><th>Cover</th><th>Title</th><th>Author</th><th>Publisher</th><th>Category</th><th>Price</th><th>Cart</th></tr>
+            </thead>
+            <tbody id="bookRows"></tbody>
+          </table>
+        </div>
+        <p id="emptyState" class="empty hidden">No books found. Try another search.</p>
+      </section>
+    </main>
+    <script src="common.js"></script>
+    <script src="store.js"></script>
+  </body>
+</html>

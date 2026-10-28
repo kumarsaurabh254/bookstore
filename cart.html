@@ -1,0 +1,48 @@
+<!doctype html>
+<!-- Experiment 4: Shopping cart page -->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cart - GL Bajaj Book Store</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main>
+      <section class="page">
+        <h1>Your Cart</h1>
+        <p class="lead">Books you have selected.</p>
+        <div id="cartEmpty" class="cart-empty">
+          <span>🛒</span>
+          <p>Your cart is empty.</p>
+          <a class="primary-btn" href="catalogue.html">Browse Books <span>→</span></a>
+        </div>
+        <div id="cartContent" class="hidden">
+          <div class="table-wrap">
+            <table class="data">
+              <thead><tr><th>Cover</th><th>Book</th><th>Price</th><th>Quantity</th><th>Total</th><th></th></tr></thead>
+              <tbody id="cartRows"></tbody>
+              <tfoot><tr><td colspan="4">Subtotal</td><td colspan="2" id="cartTotal">₹0</td></tr></tfoot>
+            </table>
+          </div>
+          <p><button class="btn-sm" id="clearCart" type="button">Clear cart</button></p>
+          <div class="form-card checkout">
+            <h2 style="font-family:Georgia,serif;color:var(--maroon);margin:0 0 14px">Place an order</h2>
+            <form id="checkoutForm">
+              <label for="customerName">Full name<input type="text" id="customerName" required placeholder="Your full name" /></label>
+              <label for="customerEmail">Email<input type="email" id="customerEmail" required placeholder="you@example.com" /></label>
+              <label for="deliveryType">Collection option
+                <select id="deliveryType"><option>Collect from campus (demo)</option><option>Campus delivery (demo)</option></select>
+              </label>
+              <p class="total">Order total <strong id="checkoutTotal">₹0</strong></p>
+              <button class="primary-btn full" type="submit">Confirm Demo Order <span>→</span></button>
+            </form>
+          </div>
+        </div>
+        <p class="ok-msg" id="checkoutMessage" role="status"></p>
+      </section>
+    </main>
+    <script src="common.js"></script>
+    <script src="store.js"></script>
+  </body>
+</html>

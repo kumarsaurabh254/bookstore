@@ -1,0 +1,85 @@
+<!doctype html>
+<!-- Experiment 10: mini-website (Your Own Portfolio) using HTML + CSS + JavaScript -->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Saurabh Kumar - Portfolio</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      .pf{max-width:860px}
+      .pf section{margin:0 0 38px}
+      .pf h2{font-family:Georgia,serif;color:var(--maroon);border-bottom:2px solid var(--gold);padding-bottom:6px}
+      .skill{margin:10px 0}.skill span{font-size:14px;font-weight:bold}
+      .bar{height:10px;background:#e9e2d5;border-radius:5px;overflow:hidden}
+      .bar i{display:block;height:100%;width:0;background:var(--green);transition:width 1s}
+      .proj{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+      .proj article{background:#fff;border:1px solid var(--line);padding:16px}
+      body.dark{background:#1f1a15;color:#eee}body.dark .proj article,body.dark .form-card{background:#2d2119;border-color:#55453a}
+      body.dark .pf h2,body.dark .page h1{color:var(--gold)}
+      @media(max-width:620px){.proj{grid-template-columns:1fr}}
+    </style>
+  </head>
+  <body>
+    <main>
+      <section class="page pf">
+        <button class="btn-sm" id="themeBtn" type="button" style="float:right">Dark mode</button>
+        <h1>Saurabh Kumar</h1>
+        <p class="lead" id="typed"></p>
+
+        <section id="about"><h2>About me</h2>
+          <p>I am a student at GL Bajaj Institute of Technology and Management (Roll No. 2501920110337), learning web development with HTML, CSS and JavaScript.</p>
+        </section>
+
+        <section id="skills"><h2>Skills</h2>
+          <div class="skill"><span>HTML</span><div class="bar"><i data-w="85"></i></div></div>
+          <div class="skill"><span>CSS</span><div class="bar"><i data-w="75"></i></div></div>
+          <div class="skill"><span>JavaScript</span><div class="bar"><i data-w="65"></i></div></div>
+        </section>
+
+        <section id="projects"><h2>Projects</h2>
+          <div class="proj">
+            <article><h3>GL Bajaj Book Store</h3><p>Multi-page bookstore with catalogue, cart, login and validated registration.</p><a href="index.html"><u>Open project</u></a></article>
+            <article><h3>CSS Lab Pages</h3><p>Fonts, backgrounds, background-repeat and link states.</p><a href="css-fonts-background.html"><u>Open project</u></a></article>
+          </div>
+        </section>
+
+        <section id="contact"><h2>Contact</h2>
+          <div class="form-card">
+            <form id="contactForm" novalidate>
+              <label for="cName">Your name<input type="text" id="cName" /><span class="err" id="cNameErr"></span></label>
+              <label for="cEmail">Your email<input type="text" id="cEmail" /><span class="err" id="cEmailErr"></span></label>
+              <label for="cMsg">Message<textarea id="cMsg" rows="3"></textarea><span class="err" id="cMsgErr"></span></label>
+              <button class="primary-btn" type="submit">Send message <span>→</span></button>
+              <p class="ok-msg" id="cOk" role="status"></p>
+            </form>
+          </div>
+          <p><a href="https://github.com/kumarsaurabh254" target="_blank" rel="noopener noreferrer"><u>github.com/kumarsaurabh254</u></a></p>
+        </section>
+      </section>
+    </main>
+    <script src="common.js"></script>
+    <script>
+      // Typing effect
+      const text = "Web development student · HTML · CSS · JavaScript"; let n = 0;
+      (function type(){ $("typed").textContent = text.slice(0, n++); if (n <= text.length) setTimeout(type, 45); })();
+      // Skill bars animate to their level
+      setTimeout(() => document.querySelectorAll(".bar i").forEach(b => b.style.width = b.dataset.w + "%"), 200);
+      // Dark mode toggle
+      $("themeBtn").addEventListener("click", () => {
+        const d = document.body.classList.toggle("dark");
+        $("themeBtn").textContent = d ? "Light mode" : "Dark mode";
+      });
+      // Contact form validation
+      $("contactForm").addEventListener("submit", e => {
+        e.preventDefault();
+        const name = $("cName").value.trim(), mail = $("cEmail").value.trim(), msg = $("cMsg").value.trim();
+        $("cNameErr").textContent = name.length < 3 ? "Enter your name (at least 3 characters)" : "";
+        $("cEmailErr").textContent = /^[^\s@]+@[^\s@]+\.[A-Za-z]{2,}$/.test(mail) ? "" : "Enter a valid email";
+        $("cMsgErr").textContent = msg.length < 10 ? "Message must be at least 10 characters" : "";
+        $("cOk").textContent = "";
+        if (!document.querySelector("#contactForm .err:not(:empty)")) { $("cOk").textContent = "Thanks " + name + "! Your message is ready (demo, nothing is sent)."; e.target.reset(); }
+      });
+    </script>
+  </body>
+</html>

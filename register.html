@@ -1,0 +1,78 @@
+<!doctype html>
+<!-- Experiment 5: Registration form (validate.js for Exp 6 & 7 is kept in the folder but not loaded) -->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registration - GL Bajaj Book Store</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main>
+      <section class="page">
+        <h1>Registration</h1>
+        <p class="lead">Create your account to start ordering books.</p>
+        <div class="form-card wide">
+          <form id="registerForm">
+            <label for="regName">Name
+              <input type="text" id="regName" name="name" placeholder="Your full name" />
+              <span class="err" id="nameErr"></span>
+            </label>
+            <label for="regPassword">Password
+              <input type="password" id="regPassword" name="password" placeholder="At least 6 characters" autocomplete="new-password" />
+              <span class="err" id="passwordErr"></span>
+            </label>
+            <label for="regEmail">E-mail id
+              <input type="text" id="regEmail" name="email" placeholder="name@domain.com" />
+              <span class="err" id="emailErr"></span>
+            </label>
+            <label for="regPhone">Phone number
+              <input type="text" id="regPhone" name="phone" placeholder="10 digit mobile number" inputmode="numeric" />
+              <span class="err" id="phoneErr"></span>
+            </label>
+            <fieldset>
+              <legend>Sex</legend>
+              <div class="inline">
+                <label><input type="radio" name="sex" value="Male" /> Male</label>
+                <label><input type="radio" name="sex" value="Female" /> Female</label>
+                <label><input type="radio" name="sex" value="Other" /> Other</label>
+              </div>
+              <span class="err" id="sexErr"></span>
+            </fieldset>
+            <fieldset>
+              <legend>Date of birth</legend>
+              <div class="dob">
+                <select id="dobDay" aria-label="Day"></select>
+                <select id="dobMonth" aria-label="Month"></select>
+                <select id="dobYear" aria-label="Year"></select>
+              </div>
+              <span class="err" id="dobErr"></span>
+            </fieldset>
+            <fieldset>
+              <legend>Languages known</legend>
+              <div class="inline">
+                <label><input type="checkbox" name="lang" value="English" /> English</label>
+                <label><input type="checkbox" name="lang" value="Telugu" /> Telugu</label>
+                <label><input type="checkbox" name="lang" value="Hindi" /> Hindi</label>
+                <label><input type="checkbox" name="lang" value="Tamil" /> Tamil</label>
+              </div>
+              <span class="err" id="langErr"></span>
+            </fieldset>
+            <label for="regAddress">Address
+              <textarea id="regAddress" name="address" rows="3" placeholder="House no., street, city, PIN"></textarea>
+              <span class="err" id="addressErr"></span>
+            </label>
+            <div class="inline">
+              <button class="primary-btn" type="submit">Create Account <span>→</span></button>
+              <button class="btn-sm" type="reset" id="resetBtn">Reset</button>
+            </div>
+            <p id="regMsg" class="ok-msg" role="status"></p>
+          </form>
+          <p class="hint">Already registered? <a href="login.html"><u>Login here</u></a>. Passwords are never saved.</p>
+        </div>
+      </section>
+    </main>
+    <script src="common.js"></script>
+    <script src="register.js"></script>
+  </body>
+</html>
